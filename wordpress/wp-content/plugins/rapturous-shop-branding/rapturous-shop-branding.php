@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Rapturous Shop Branding
  * Description: Premium Rapturous Jigsaw WooCommerce storefront styling.
- * Version: 3.1.0
+ * Version: 3.1.1
  */
 
 if (!defined('ABSPATH')) {
@@ -33,7 +33,7 @@ add_action('wp_enqueue_scripts', function () {
         null
     );
 
-    wp_register_style('rj-shop-branding', false, array('rj-shop-fonts'), '3.0.0');
+    wp_register_style('rj-shop-branding', false, array('rj-shop-fonts'), '3.1.1');
     wp_enqueue_style('rj-shop-branding');
 
     $css = <<<'CSS'
@@ -2720,3 +2720,143 @@ add_action('woocommerce_after_single_product_summary', function () {
 
     echo '</div></section>';
 }, 8);
+
+add_action('wp_enqueue_scripts', function(){ wp_add_inline_style('rj-shop-branding', '
+/* Related products: stable premium square-card grid. */
+.single-product section.related.products {
+  width: min(1180px, calc(100vw - 48px));
+  margin: clamp(48px, 6vw, 88px) auto 0 !important;
+}
+
+.single-product section.related.products > h2 {
+  margin: 0 0 24px !important;
+  color: #1c1e21 !important;
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: clamp(30px, 3vw, 42px) !important;
+  line-height: 1 !important;
+  letter-spacing: -.035em !important;
+}
+
+.single-product section.related.products ul.products {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: clamp(16px, 2vw, 24px) !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.single-product section.related.products ul.products::before,
+.single-product section.related.products ul.products::after {
+  display: none !important;
+}
+
+.single-product section.related.products ul.products li.product {
+  float: none !important;
+  clear: none !important;
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 100% !important;
+  border: 1px solid rgba(30,30,30,.08) !important;
+  border-radius: 26px !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.54)),
+    #f7f4ee !important;
+  padding: 12px 12px 16px !important;
+  box-shadow: 0 24px 68px -58px rgba(30,30,30,.48) !important;
+}
+
+.single-product section.related.products ul.products li.product .astra-shop-thumbnail-wrap {
+  position: relative !important;
+  width: 100% !important;
+  min-height: 0 !important;
+  aspect-ratio: 1 / 1 !important;
+  overflow: hidden !important;
+  border-radius: 20px !important;
+  border: 1px solid rgba(30,30,30,.06) !important;
+  background:
+    radial-gradient(circle at 28% 22%, rgba(255,255,255,.92), transparent 38%),
+    linear-gradient(145deg, #f5efe6 0%, #f8f4ee 52%, rgba(179,192,164,.20) 100%) !important;
+  display: grid !important;
+  place-items: center !important;
+  padding: 16px !important;
+}
+
+.single-product section.related.products ul.products li.product .astra-shop-thumbnail-wrap a {
+  display: grid !important;
+  place-items: center !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.single-product section.related.products ul.products li.product a img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  margin: 0 !important;
+  transform: none !important;
+  mix-blend-mode: normal !important;
+  filter: saturate(1.03) contrast(1.02) drop-shadow(0 14px 18px rgba(30,30,30,.08)) !important;
+}
+
+.single-product section.related.products ul.products li.product .ast-woo-product-category {
+  margin: 13px 0 0 !important;
+  color: rgba(30,30,30,.46) !important;
+  font-family: "Manrope", system-ui, sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  letter-spacing: .02em !important;
+  line-height: 1.35 !important;
+}
+
+.single-product section.related.products ul.products li.product .woocommerce-loop-product__title {
+  min-height: 3.1em !important;
+  margin: 12px 0 0 !important;
+  color: #1c1e21 !important;
+  font-size: clamp(21px, 1.65vw, 26px) !important;
+  line-height: 1.04 !important;
+  letter-spacing: -.035em !important;
+}
+
+.single-product section.related.products ul.products li.product .price {
+  margin: 9px 0 13px !important;
+  font-size: 13px !important;
+  line-height: 1.35 !important;
+}
+
+.single-product section.related.products ul.products li.product .button,
+.single-product section.related.products ul.products li.product a.button,
+.single-product section.related.products ul.products li.product .added_to_cart {
+  align-self: flex-start !important;
+  margin-top: auto !important;
+  min-height: 34px !important;
+  padding: 10px 15px !important;
+  white-space: nowrap !important;
+  text-transform: uppercase !important;
+  letter-spacing: .12em !important;
+}
+
+@media (max-width: 1024px) {
+  .single-product section.related.products ul.products {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .single-product section.related.products {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .single-product section.related.products ul.products {
+    grid-template-columns: 1fr !important;
+  }
+
+  .single-product section.related.products ul.products li.product .astra-shop-thumbnail-wrap {
+    padding: 14px !important;
+  }
+}
+'); }, 170);
