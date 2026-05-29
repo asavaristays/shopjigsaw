@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Rapturous Shop Branding
  * Description: Premium Rapturous Jigsaw WooCommerce storefront styling.
- * Version: 3.1.1
+ * Version: 3.1.2
  */
 
 if (!defined('ABSPATH')) {
@@ -33,7 +33,7 @@ add_action('wp_enqueue_scripts', function () {
         null
     );
 
-    wp_register_style('rj-shop-branding', false, array('rj-shop-fonts'), '3.1.1');
+    wp_register_style('rj-shop-branding', false, array('rj-shop-fonts'), '3.1.2');
     wp_enqueue_style('rj-shop-branding');
 
     $css = <<<'CSS'
@@ -2740,6 +2740,7 @@ add_action('wp_enqueue_scripts', function(){ wp_add_inline_style('rj-shop-brandi
 .single-product section.related.products ul.products {
   display: grid !important;
   grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  align-items: start !important;
   gap: clamp(16px, 2vw, 24px) !important;
   width: 100% !important;
   margin: 0 !important;
@@ -2758,7 +2759,8 @@ add_action('wp_enqueue_scripts', function(){ wp_add_inline_style('rj-shop-brandi
   margin: 0 !important;
   display: flex !important;
   flex-direction: column !important;
-  min-height: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
   border: 1px solid rgba(30,30,30,.08) !important;
   border-radius: 26px !important;
   background:
@@ -2772,7 +2774,7 @@ add_action('wp_enqueue_scripts', function(){ wp_add_inline_style('rj-shop-brandi
   position: relative !important;
   width: 100% !important;
   min-height: 0 !important;
-  aspect-ratio: 1 / 1 !important;
+  aspect-ratio: 1 / .9 !important;
   overflow: hidden !important;
   border-radius: 20px !important;
   border: 1px solid rgba(30,30,30,.06) !important;
@@ -2814,7 +2816,7 @@ add_action('wp_enqueue_scripts', function(){ wp_add_inline_style('rj-shop-brandi
 }
 
 .single-product section.related.products ul.products li.product .woocommerce-loop-product__title {
-  min-height: 3.1em !important;
+  min-height: 2.15em !important;
   margin: 12px 0 0 !important;
   color: #1c1e21 !important;
   font-size: clamp(21px, 1.65vw, 26px) !important;
@@ -2832,7 +2834,7 @@ add_action('wp_enqueue_scripts', function(){ wp_add_inline_style('rj-shop-brandi
 .single-product section.related.products ul.products li.product a.button,
 .single-product section.related.products ul.products li.product .added_to_cart {
   align-self: flex-start !important;
-  margin-top: auto !important;
+  margin-top: 0 !important;
   min-height: 34px !important;
   padding: 10px 15px !important;
   white-space: nowrap !important;
