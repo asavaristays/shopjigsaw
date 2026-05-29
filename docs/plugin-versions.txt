@@ -1,0 +1,16 @@
+Exported: 20260528-183452
+name	status	version
+woo-razorpay	active	4.8.4
+akismet	inactive	5.6
+hello	inactive	1.7.2
+kadence-blocks	active	3.7.2
+rapturous-catalog-polish	active	1.2.0
+rapturous-homepage-polish	active	1.1.0
+rapturous-shop-branding	active	3.0.1
+woocommerce	active	10.7.0
+name	status	version
+astra	active	4.13.3
+kadence	inactive	1.5.0
+twentytwentyfive	inactive	1.4
+twentytwentyfour	inactive	1.4
+twentytwentythree	inactive	1.6
