@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Rapturous Shop Branding
  * Description: Premium Rapturous Jigsaw WooCommerce storefront styling.
- * Version: 3.0.2
+ * Version: 3.1.0
  */
 
 if (!defined('ABSPATH')) {
@@ -2280,3 +2280,443 @@ add_action('wp_enqueue_scripts', function(){ wp_add_inline_style('rj-shop-brandi
   }
 }
 '); }, 140);
+
+add_action('wp_enqueue_scripts', function(){ wp_add_inline_style('rj-shop-branding', '
+/* Premium product page strategy: product clarity with luxury spacing. */
+.single-product .summary .product_title {
+  max-width: 680px;
+  margin-bottom: 14px !important;
+}
+
+.single-product .summary .product_title .rj-title-name {
+  display: block;
+}
+
+.single-product .summary .product_title .rj-title-pieces {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-top: 14px;
+  border: 1px solid rgba(29,100,122,.16);
+  border-radius: 999px;
+  background: rgba(29,100,122,.07);
+  color: #1d647a;
+  padding: 9px 13px;
+  font-family: "Manrope", system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .16em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.single-product .rj-top-benefits {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 24px 0 22px;
+}
+
+.single-product .rj-top-benefit {
+  border: 1px solid rgba(30,30,30,.08);
+  border-radius: 18px;
+  background: rgba(255,255,255,.58);
+  padding: 14px 15px;
+}
+
+.single-product .rj-top-benefit strong {
+  display: block;
+  color: #1d647a;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .16em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.single-product .rj-top-benefit span {
+  display: block;
+  margin-top: 7px;
+  color: rgba(30,30,30,.62);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.single-product .rj-product-story {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-top: clamp(46px, 6vw, 84px);
+}
+
+.single-product .rj-story-wrap {
+  display: grid;
+  gap: clamp(18px, 2.5vw, 30px);
+}
+
+.single-product .rj-story-intro {
+  display: grid;
+  grid-template-columns: minmax(0, .86fr) minmax(300px, .64fr);
+  gap: clamp(24px, 5vw, 72px);
+  align-items: end;
+  border-top: 1px solid rgba(30,30,30,.10);
+  padding-top: clamp(34px, 5vw, 56px);
+}
+
+.single-product .rj-story-kicker {
+  margin: 0 0 12px;
+  color: #78866b;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+}
+
+.single-product .rj-story-intro h2,
+.single-product .rj-story-split h2,
+.single-product .rj-story-details h2 {
+  margin: 0;
+  color: #1c1e21;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: .98;
+  letter-spacing: -.04em;
+  font-weight: 700;
+}
+
+.single-product .rj-story-intro p,
+.single-product .rj-story-split p {
+  margin: 0;
+  color: rgba(30,30,30,.66);
+  font-size: clamp(14px, 1.12vw, 16px);
+  line-height: 1.82;
+}
+
+.single-product .rj-story-panel-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.single-product .rj-story-panel {
+  min-height: 210px;
+  border: 1px solid rgba(30,30,30,.08);
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 20% 12%, rgba(255,255,255,.72), transparent 34%),
+    linear-gradient(145deg, rgba(255,250,244,.94), rgba(239,231,221,.64));
+  padding: clamp(19px, 2.2vw, 26px);
+  box-shadow: 0 22px 64px -56px rgba(30,30,30,.42);
+}
+
+.single-product .rj-story-panel:nth-child(even) {
+  background:
+    radial-gradient(circle at 20% 12%, rgba(255,255,255,.68), transparent 34%),
+    linear-gradient(145deg, rgba(246,240,231,.96), rgba(179,192,164,.22));
+}
+
+.single-product .rj-story-panel strong {
+  display: block;
+  color: #1d647a;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.single-product .rj-story-panel h3 {
+  margin: 16px 0 0;
+  color: #1c1e21;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(25px, 2.3vw, 34px);
+  line-height: .98;
+  letter-spacing: -.035em;
+}
+
+.single-product .rj-story-panel p {
+  margin: 14px 0 0;
+  color: rgba(30,30,30,.64);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.single-product .rj-story-split {
+  display: grid;
+  grid-template-columns: minmax(0, .92fr) minmax(0, 1fr);
+  gap: clamp(20px, 4vw, 54px);
+  align-items: stretch;
+  overflow: hidden;
+  border: 1px solid rgba(30,30,30,.08);
+  border-radius: 32px;
+  background: rgba(255,255,255,.50);
+  box-shadow: 0 26px 76px -64px rgba(30,30,30,.48);
+}
+
+.single-product .rj-story-art {
+  min-height: clamp(320px, 34vw, 480px);
+  background:
+    radial-gradient(circle at 24% 24%, rgba(255,255,255,.82), transparent 34%),
+    radial-gradient(circle at 78% 72%, rgba(184,107,75,.18), transparent 34%),
+    linear-gradient(145deg, rgba(239,231,221,.96), rgba(179,192,164,.26));
+  display: grid;
+  place-items: center;
+  padding: clamp(18px, 3vw, 40px);
+}
+
+.single-product .rj-story-art img {
+  width: 100%;
+  height: 100%;
+  max-height: 410px;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 22px rgba(30,30,30,.10));
+}
+
+.single-product .rj-story-copy {
+  align-self: center;
+  padding: clamp(28px, 4.6vw, 56px);
+}
+
+.single-product .rj-story-copy ul {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.single-product .rj-story-copy li {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 12px;
+  align-items: start;
+  color: rgba(30,30,30,.68);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.single-product .rj-story-copy li::before {
+  content: "";
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: rgba(120,134,107,.18);
+  box-shadow: inset 0 0 0 1px rgba(120,134,107,.28);
+}
+
+.single-product .rj-story-details {
+  display: grid;
+  grid-template-columns: minmax(0, .68fr) minmax(0, 1fr);
+  gap: clamp(20px, 4vw, 54px);
+  align-items: start;
+  border-top: 1px solid rgba(30,30,30,.10);
+  padding-top: clamp(34px, 5vw, 58px);
+}
+
+.single-product .rj-story-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.single-product .rj-story-detail {
+  border: 1px solid rgba(30,30,30,.08);
+  border-radius: 21px;
+  background: rgba(255,255,255,.54);
+  padding: 17px;
+}
+
+.single-product .rj-story-detail span {
+  display: block;
+  color: rgba(30,30,30,.42);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.single-product .rj-story-detail strong {
+  display: block;
+  margin-top: 8px;
+  color: #1d647a;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 25px;
+  line-height: .98;
+}
+
+.single-product .rj-product-videos {
+  margin-top: clamp(28px, 5vw, 56px) !important;
+}
+
+@media (max-width: 980px) {
+  .single-product .rj-story-intro,
+  .single-product .rj-story-split,
+  .single-product .rj-story-details {
+    grid-template-columns: 1fr;
+  }
+
+  .single-product .rj-story-panel-grid,
+  .single-product .rj-top-benefits {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .single-product .rj-story-panel-grid,
+  .single-product .rj-story-detail-grid,
+  .single-product .rj-top-benefits {
+    grid-template-columns: 1fr;
+  }
+
+  .single-product .rj-story-panel {
+    min-height: 0;
+  }
+
+  .single-product .rj-story-split {
+    border-radius: 24px;
+  }
+}
+'); }, 150);
+
+function rj_product_piece_count_from_name($name) {
+    if (preg_match('/(\d+)\s*pieces?/i', $name, $matches)) {
+        return $matches[1] . ' pieces';
+    }
+    return '';
+}
+
+function rj_clean_product_name($name) {
+    $clean = preg_replace('/\s*[–-]\s*\d+\s*pieces?.*$/i', '', $name);
+    return trim($clean) ?: $name;
+}
+
+add_action('woocommerce_single_product_summary', function () {
+    if (!is_product()) {
+        return;
+    }
+    global $product;
+    if (!$product) {
+        return;
+    }
+    $name = $product->get_name();
+    $piece_count = rj_product_piece_count_from_name($name);
+    ?>
+    <script>
+      (function () {
+        var title = document.querySelector('.single-product .summary .product_title');
+        if (!title || title.dataset.rjSplit === '1') return;
+        var raw = title.textContent.trim();
+        var match = raw.match(/\s*[–-]\s*(\d+\s*pieces?)\s*$/i);
+        var name = raw;
+        var pieces = <?php echo wp_json_encode($piece_count); ?>;
+        if (match) {
+          name = raw.replace(/\s*[–-]\s*\d+\s*pieces?\s*$/i, '').trim();
+          pieces = pieces || match[1];
+        }
+        title.dataset.rjSplit = '1';
+        title.innerHTML = '<span class="rj-title-name">' + name + '</span>' + (pieces ? '<span class="rj-title-pieces">' + pieces + '</span>' : '');
+      })();
+    </script>
+    <?php
+}, 6);
+
+add_action('woocommerce_single_product_summary', function () {
+    if (!is_product()) {
+        return;
+    }
+    static $rendered = false;
+    if ($rendered) {
+        return;
+    }
+    $rendered = true;
+    ?>
+    <div class="rj-top-benefits" aria-label="Product highlights">
+      <div class="rj-top-benefit"><strong>Mindful focus</strong><span>Designed for slower, more intentional attention.</span></div>
+      <div class="rj-top-benefit"><strong>Screen-free ritual</strong><span>A calming table activity beyond digital fatigue.</span></div>
+      <div class="rj-top-benefit"><strong>Family time</strong><span>Made for quiet collaboration and shared evenings.</span></div>
+      <div class="rj-top-benefit"><strong>Premium gifting</strong><span>Artwork-led puzzle experience for thoughtful gifting.</span></div>
+    </div>
+    <?php
+}, 24);
+
+add_action('woocommerce_after_single_product_summary', function () {
+    if (!is_product()) {
+        return;
+    }
+
+    global $product;
+    if (!$product) {
+        return;
+    }
+
+    $product_id = $product->get_id();
+    $name = $product->get_name();
+    $short_name = rj_clean_product_name($name);
+    $piece_count = rj_product_piece_count_from_name($name);
+
+    $categories = get_the_terms($product_id, 'product_cat');
+    $category_names = array();
+    if (!is_wp_error($categories) && !empty($categories)) {
+        foreach ($categories as $category) {
+            if (in_array($category->slug, array('uncategorized'), true)) {
+                continue;
+            }
+            $category_names[] = $category->name;
+            if (!$piece_count && preg_match('/(\d+\+?|\d+\-\d+)\s*pieces?/i', $category->name, $matches)) {
+                $piece_count = $matches[0];
+            }
+        }
+    }
+
+    $category_label = !empty($category_names) ? implode(', ', array_slice($category_names, 0, 3)) : 'Premium wooden puzzle';
+    $piece_label = $piece_count ?: 'Premium puzzle set';
+    $image_id = $product->get_image_id();
+    $gallery_ids = $product->get_gallery_image_ids();
+    $story_image_id = !empty($gallery_ids[1]) ? $gallery_ids[1] : (!empty($gallery_ids[0]) ? $gallery_ids[0] : $image_id);
+    $story_image = $story_image_id ? wp_get_attachment_image_url($story_image_id, 'large') : '';
+    $price = $product->get_price() !== '' ? html_entity_decode(wp_strip_all_tags(wc_price($product->get_price())), ENT_QUOTES, get_bloginfo('charset')) : '';
+    $stock_text = $product->is_in_stock() ? 'Available to order' : 'Currently unavailable';
+
+    echo '<section class="rj-product-story" aria-label="Product experience">';
+    echo '<div class="rj-story-wrap">';
+
+    echo '<div class="rj-story-intro">';
+    echo '<div><p class="rj-story-kicker">Experience panels</p><h2>' . esc_html($short_name) . ' explained beyond image and price.</h2></div>';
+    echo '<p>Product pages now give buyers more room to understand the artwork, cognitive value, gifting use case and lifestyle fit before checkout.</p>';
+    echo '</div>';
+
+    echo '<div class="rj-story-panel-grid">';
+    $panels = array(
+        array('01', 'Focus Training', 'Supports visual matching, attention span and patient problem-solving through immersive hands-on play.'),
+        array('02', 'Relaxation Ritual', 'A calm alternative to scrolling, designed to slow down evenings and reduce digital fatigue.'),
+        array('03', 'Shared Connection', 'Creates a natural table activity for families, couples, friends and intergenerational bonding.'),
+        array('04', 'Giftable Artwork', 'Premium art-led presentation makes the puzzle feel thoughtful, purposeful and memorable.'),
+    );
+    foreach ($panels as $panel) {
+        echo '<article class="rj-story-panel"><strong>' . esc_html($panel[0]) . '</strong><h3>' . esc_html($panel[1]) . '</h3><p>' . esc_html($panel[2]) . '</p></article>';
+    }
+    echo '</div>';
+
+    echo '<div class="rj-story-split">';
+    echo '<div class="rj-story-art">';
+    if ($story_image) {
+        echo '<img src="' . esc_url($story_image) . '" alt="' . esc_attr($short_name . ' product detail') . '" loading="lazy" />';
+    }
+    echo '</div>';
+    echo '<div class="rj-story-copy"><p class="rj-story-kicker">Lifestyle use</p><h2>Built for screen-free focus, gifting and quiet connection.</h2><p>This area is ready for stronger lifestyle photography when the client provides final images. For now it uses the product gallery to create a richer buying story.</p><ul><li>Ideal for mindful solo sessions and quiet weekends.</li><li>Useful for family evenings, gifting and workplace wellness moments.</li><li>Designed to communicate premium value beyond the product thumbnail.</li></ul></div>';
+    echo '</div>';
+
+    echo '<div class="rj-story-details">';
+    echo '<div><p class="rj-story-kicker">Product clarity</p><h2>Key buying details in one place.</h2></div>';
+    echo '<div class="rj-story-detail-grid">';
+    $details = array(
+        array('Puzzle size', $piece_label),
+        array('Collection', $category_label),
+        array('Price', $price ?: 'View price above'),
+        array('Availability', $stock_text),
+    );
+    foreach ($details as $detail) {
+        echo '<div class="rj-story-detail"><span>' . esc_html($detail[0]) . '</span><strong>' . esc_html($detail[1]) . '</strong></div>';
+    }
+    echo '</div></div>';
+
+    echo '</div></section>';
+}, 8);
