@@ -404,6 +404,37 @@ h1, h2, h3, .site-title {
   font-weight: 900 !important;
 }
 
+.rj-gst-inclusive {
+  display: block;
+  margin-top: 5px;
+  color: rgba(28,30,33,.48);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .14em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.rj-gst-notice {
+  margin: 0 0 18px;
+  padding: 12px 14px;
+  border: 1px solid rgba(29,100,122,.14);
+  border-radius: 14px;
+  background: rgba(29,100,122,.06);
+  color: rgba(28,30,33,.68);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.rj-gst-total-note th,
+.rj-gst-total-note td {
+  color: rgba(28,30,33,.64) !important;
+  font-size: 12px !important;
+  letter-spacing: .04em;
+}
+
 .woocommerce ul.products li.product .price del {
   color: rgba(28,30,33,.38) !important;
   font-weight: 700 !important;
@@ -2588,6 +2619,26 @@ function rj_clean_product_name($name) {
     return trim($clean) ?: $name;
 }
 
+function rj_gst_inclusive_label() {
+    return '<small class="rj-gst-inclusive">Incl. 18% GST</small>';
+}
+
+add_filter('woocommerce_get_price_html', function ($price_html, $product) {
+    if (is_admin() || empty($price_html) || strpos($price_html, 'rj-gst-inclusive') !== false) {
+        return $price_html;
+    }
+    return $price_html . rj_gst_inclusive_label();
+}, 20, 2);
+
+function rj_render_gst_notice() {
+    echo '<div class="rj-gst-notice">All displayed product prices are inclusive of GST @ 18%.</div>';
+}
+
+add_action('woocommerce_before_cart_totals', 'rj_render_gst_notice', 5);
+add_action('woocommerce_review_order_before_order_total', function () {
+    echo '<tr class="rj-gst-total-note"><th>GST disclosure</th><td>Final total includes GST @ 18% where applicable.</td></tr>';
+}, 5);
+
 add_action('woocommerce_single_product_summary', function () {
     if (!is_product()) {
         return;
@@ -2710,7 +2761,7 @@ add_action('woocommerce_after_single_product_summary', function () {
     $details = array(
         array('Puzzle size', $piece_label),
         array('Collection', $category_label),
-        array('Price', $price ?: 'View price above'),
+        array('Price', ($price ?: 'View price above') . ' incl. 18% GST'),
         array('Availability', $stock_text),
     );
     foreach ($details as $detail) {
